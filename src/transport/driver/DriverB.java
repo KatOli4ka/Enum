@@ -2,8 +2,6 @@ package transport.driver;
 
 import transport.Car;
 
-import java.net.CacheRequest;
-
 public class DriverB extends Driver<Car>{
     public DriverB(String fio, boolean hasDriveLicense, int expirience) {
         super(fio, hasDriveLicense, expirience);

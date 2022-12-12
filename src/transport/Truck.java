@@ -1,8 +1,18 @@
 package transport;
 
 public class Truck extends Transport {
-    public Truck(String model, String brand, double engineVolume) {
+    private LoadCapacity loadCapacity;
+    public Truck(String model, String brand, double engineVolume,LoadCapacity loadCapacity) {
         super(model, brand, engineVolume);
+        this.loadCapacity=loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -13,6 +23,17 @@ public class Truck extends Transport {
     @Override
     public void end() {
         super.end();
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных по грузовику недостаточно");
+        } else {
+            String from=loadCapacity.getFrom()==null? "" : "от " +loadCapacity.getFrom()+" т. ";
+            String to=loadCapacity.getTo()==null? "" : "от " +loadCapacity.getTo()+" т.";
+            System.out.println("Грузоподъемность грузовика - " + from + to);
+        }
     }
 
     @Override
