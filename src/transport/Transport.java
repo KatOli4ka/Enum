@@ -3,7 +3,6 @@ package transport;
 import java.util.Objects;
 
 public abstract class Transport implements Competing{
-    private String[] pitStop=new String[5];
     private String brand;
     private String model;
     private double engineVolume;
@@ -51,6 +50,8 @@ public abstract class Transport implements Competing{
     public void end() {
         System.out.println("Финиш!");
     }
+
+    public abstract void printType();
 
     @Override
     public boolean equals(Object o) {

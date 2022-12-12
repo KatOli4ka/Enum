@@ -1,11 +1,19 @@
 package transport;
 
-import java.util.Arrays;
-
 public class Car extends Transport implements Competing {
+    private TypeOfBody typeOfBody;
 
-    public Car(String model, String brand, double engineVolume) {
+    public Car(String model, String brand, double engineVolume,TypeOfBody typeOfBody) {
         super(model, brand, engineVolume);
+        this.typeOfBody=typeOfBody;
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -16,6 +24,15 @@ public class Car extends Transport implements Competing {
     @Override
     public void end() {
         super.end();
+    }
+
+    @Override
+    public void printType() {
+        if (typeOfBody == null) {
+            System.out.println("Данных по авто недостаточно");
+        }else{
+            System.out.println("Тип кузова авто - "+typeOfBody);
+        }
     }
 
     @Override
